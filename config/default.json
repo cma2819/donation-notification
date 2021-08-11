@@ -1,0 +1,10 @@
+{
+    "logging": true,
+    "tracker": {
+        "wsUrl": "ws://tracker.example.com/tracker/ws/donations"
+    },
+    "discord": {
+        "username": "donate-notification",
+        "webhook": "https://discord.example.com/api/webhooks/webhookId/webhookToken"
+    }
+}
