@@ -22,7 +22,7 @@ const notifyAll = (donation: Donation) => {
 }
 
 let donationWs: WebSocket|null = null;
-let reconnectInterval: number|null = null;
+let reconnectInterval: NodeJS.Timer|null = null;
 
 const connect = () => {
     donationWs = new WebSocket(
@@ -38,7 +38,7 @@ const connect = () => {
     donationWs.addEventListener('close', ({wasClean, code, reason}) => {
         console.log('websocket closed:', {wasClean, code, reason});
         console.log('attempt to reconnect in 10 secs.');
-        reconnectInterval = window.setInterval(() => {
+        reconnectInterval = setInterval(() => {
             connect();
         }, 10 * 1000)
     });
